@@ -1,0 +1,8 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 6.0
+
+[font.normal]
+family = "Terminus"
