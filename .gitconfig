@@ -1,0 +1,7 @@
+[user]
+	email = benedikt.zundel@live.com
+	name = Benedikt Zundel
+[core]
+	editor = vim
+[init]
+	defaultBranch = master
