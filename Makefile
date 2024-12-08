@@ -1,2 +1,2 @@
 install:
-	stow --adopt -t ~ .
+	stow --no-folding --adopt -t ~ .
