@@ -20,6 +20,9 @@ def autostart():
     home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.call(["sh", home])
 
+def generate_open_terminal_with_action_command(command):
+    return f"{terminal} -e sh -c '{command}; exec $SHELL'"
+
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -58,12 +61,17 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.widget["volume"].increase_vol(), desc="Increase volume"),
     Key([], "XF86AudioMute", lazy.widget["volume"].mute(), desc="Toggle mute volume"),
 
+    # open shortcuts
     KeyChord([mod], "o", [
-        Key([], "c", lazy.spawn("kitty --hold khal calendar"), desc="Launch new kitty terminal showing khal calendar"),
+        Key([], "c", lazy.spawn(generate_open_terminal_with_action_command("khal calendar")), desc="Launch new terminal instance showing khal calendar"),
         Key([], "f", lazy.spawn("firefox"), desc="Launch firefox"),
         Key([], "q", lazy.spawn("qutebrowser"), desc="Launch qutebrowser"),
-        Key([], "t", lazy.spawn("thunderbird"), desc="Launch thunderbird"),
         Key([], "o", lazy.spawn("obsidian"), desc="Launch obsidian"),
+        Key([], "k", lazy.spawn("keepassxc"), desc="Launch keepassxc"),
+        Key([], "t", lazy.spawn("thunderbird"), desc="Launch thunderbird"),
+        Key([], "s", lazy.spawn("signal-desktop"), desc="Launch signal"),
+        Key([], "e", lazy.spawn("element-desktop"), desc="Launch element"),
+        Key([], "w", lazy.spawn(generate_open_terminal_with_action_command("weechat")), desc="Launch new terminal instance with weechat"),
         ],
         name="Launch"
     ),
@@ -89,7 +97,7 @@ groups = [
     Group("notes", matches=[Match(wm_class=["obsidian"])]),
     Group("misc"),
     Group("pass", matches=[Match(wm_class=["keepassxc"])]),
-    Group("msg", matches=[Match(wm_class=["thunderbird"]), Match(wm_class=["element"])]),
+    Group("msg", matches=[Match(wm_class=["thunderbird"]), Match(wm_class=["signal"]), Match(wm_class=["element"])]),
     Group("media"),
     ScratchPad("scratchpad", [DropDown("terminal", terminal, opacity=0.8, height=0.8, width=0.8)]),
 ]
@@ -156,7 +164,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
@@ -176,23 +184,10 @@ auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
 auto_minimize = True
 
-# When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
-
-# xcursor theme (string or None) and size (integer) for Wayland backend
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "LG3D"
