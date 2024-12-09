@@ -71,6 +71,7 @@ keys = [
         Key([], "t", lazy.spawn("thunderbird"), desc="Launch thunderbird"),
         Key([], "s", lazy.spawn("signal-desktop"), desc="Launch signal"),
         Key([], "e", lazy.spawn("element-desktop"), desc="Launch element"),
+        Key([], "d", lazy.spawn("discord"), desc="Launch discord"),
         Key([], "w", lazy.spawn(generate_open_terminal_with_action_command("weechat")), desc="Launch new terminal instance with weechat"),
         ],
         name="Launch"
@@ -97,7 +98,7 @@ groups = [
     Group("notes", matches=[Match(wm_class=["obsidian"])]),
     Group("misc"),
     Group("pass", matches=[Match(wm_class=["keepassxc"])]),
-    Group("msg", matches=[Match(wm_class=["thunderbird"]), Match(wm_class=["signal"]), Match(wm_class=["element"])]),
+    Group("msg", matches=[Match(wm_class=["thunderbird"]), Match(wm_class=["discord"]), Match(wm_class=["signal"]), Match(wm_class=["element"])]),
     Group("media"),
     ScratchPad("scratchpad", [DropDown("terminal", terminal, opacity=0.8, height=0.8, width=0.8)]),
 ]
