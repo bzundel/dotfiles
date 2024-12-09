@@ -14,9 +14,28 @@ fileext = ".ics"
 
 [storage personal_calendar_remote]
 type = "caldav"
-url.fetch = ["command", "pass", "caldav/personal/url"]
-username.fetch = ["command", "pass", "caldav/username"]
-password.fetch = ["command", "pass", "caldav/password"]
+url.fetch = ["command", "pass", "webdav/caldav/personal/url"]
+username.fetch = ["command", "pass", "webdav/username"]
+password.fetch = ["command", "pass", "webdav/password"]
+
+
+
+[pair personal_contacts]
+a = "personal_contacts_local"
+b = "personal_contacts_remote"
+collections = null
+
+[storage personal_contacts_local]
+type = "filesystem"
+path = "~/.contacts/personal/"
+fileext = ".vcf"
+
+[storage personal_contacts_remote]
+type = "carddav"
+url.fetch = ["command", "pass", "webdav/carddav/personal/url"]
+username.fetch = ["command", "pass", "webdav/username"]
+password.fetch = ["command", "pass", "webdav/password"]
+
 
 [pair university_calendar]
 a = "university_calendar_local"
@@ -31,6 +50,6 @@ fileext = ".ics"
 
 [storage university_calendar_remote]
 type = "caldav"
-url.fetch = ["command", "pass", "caldav/university/url"]
-username.fetch = ["command", "pass", "caldav/username"]
-password.fetch = ["command", "pass", "caldav/password"]
+url.fetch = ["command", "pass", "webdav/caldav/university/url"]
+username.fetch = ["command", "pass", "webdav/username"]
+password.fetch = ["command", "pass", "webdav/password"]
