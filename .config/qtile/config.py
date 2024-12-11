@@ -23,6 +23,13 @@ def autostart():
 def generate_open_terminal_with_action_command(command):
     return f"{terminal} -e sh -c '{command}; exec $SHELL'"
 
+@lazy.group.function
+def unminimize_all(group):
+    for win in group.windows:
+        if win.minimized:
+            win.toggle_minimize()
+
+
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -56,6 +63,8 @@ keys = [
     Key([modsuper, "shift"], "l", lazy.spawn("lock_suspend")),
     Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Switch to next keyboard layout"),
     Key([mod], "b", lazy.hide_show_bar(), desc="Toggle the bar"),
+
+    Key([mod, "shift"], "m", unminimize_all, desc="Unminimize all windows in current group"),
 
     Key([], "XF86AudioLowerVolume", lazy.widget["volume"].decrease_vol(), desc="Decrease volume"),
     Key([], "XF86AudioRaiseVolume", lazy.widget["volume"].increase_vol(), desc="Increase volume"),
