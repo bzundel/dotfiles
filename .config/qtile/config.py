@@ -46,6 +46,7 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod], "Return", lazy.layout.swap_main()),
 
     Key([mod, "shift"], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
@@ -124,7 +125,7 @@ keys.extend([
 
 layouts = [
     layout.TreeTab(),
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2),
+    layout.MonadTall(border_focus="#b200d1", border_width=1)
 ]
 
 widget_defaults = dict(
