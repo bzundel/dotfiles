@@ -156,7 +156,7 @@ screens = [
                 widget.Sep(),
                 widget.Wlan(interface=hostname_wlan_interface[hostname], format="{essid} {percent:2.0%}"),
                 widget.Sep(),
-                widget.Volume(),
+                widget.Volume(volume_app="amixer"),
                 widget.Sep(),
                 widget.Battery(format="{char} {percent:2.0%} {hour:d}:{min:02d}", low_percentage=0.2, notify_below=20, empty_char="🪫", discharge_char="🔋", charge_char="⚡", full_char="🔋"),
                 widget.Sep(),
