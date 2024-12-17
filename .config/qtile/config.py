@@ -13,6 +13,7 @@ hostname = subprocess.check_output(["uname", "-n"]).decode().strip()
 hostname_wlan_interface = {
     "cora": "wlp0s20f3",
     "corapad": "wlp3s0",
+    "minicora": "wlp0s12f0",
 }
 
 @hook.subscribe.startup_once
