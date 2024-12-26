@@ -5,5 +5,6 @@ flameshot &
 nm-applet &
 redshift-gtk &
 caffeine &
+blueman-applet &
 
 xsetroot -solid black
