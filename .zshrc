@@ -1,8 +1,10 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="half-life"
+ZSH_THEME="cora-half-life"
 
 plugins=(git)
+
+eval "$(direnv hook zsh)"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -17,3 +19,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export PATH="$PATH:/home/bened/.dotnet/tools"
+
