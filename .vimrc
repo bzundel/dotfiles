@@ -5,6 +5,9 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'lervag/vimtex'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'jpalardy/vim-slime'
+Plug 'preservim/vimux'
 call plug#end()
 
 set nocompatible
@@ -29,8 +32,27 @@ nnoremap <C-n> :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
+" switch splits with ctrl-{hjkl}
+nnoremap <silent> <c-h> :wincmd h<CR>
+nnoremap <silent> <c-j> :wincmd j<CR>
+nnoremap <silent> <c-k> :wincmd k<CR>
+nnoremap <silent> <c-l> :wincmd l<CR>
+
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 
 let g:vimtex_view_method = 'zathura'
+
+" ocaml merlin
+let g:opamshare = substitute(system('opam var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" slime
+let g:slime_target = "tmux"
+let g:slime_paste_file = tempname()
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+let g:slime_dont_ask_default = 1
+
+nmap <leader>s <Plug>SlimeParagraphSend
+xmap <leader>s <Plug>SlimeRegionSend
+
