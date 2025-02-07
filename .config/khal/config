@@ -1,12 +1,16 @@
 [calendars]
 	[[personal]]
 		path = ~/.calendars/personal
-		color = light green
+		color = light magenta
 		priority = 20
 	[[university]]
 		path = ~/.calendars/university
-		color = light blue
+		color = dark blue
 		priority = 10
+	[[university_timetable]]
+		path = ~/.calendars/university_timetable
+		color = dark green
+		priority = 5
 
 [default]
 	default_calendar = personal

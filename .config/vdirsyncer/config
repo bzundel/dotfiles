@@ -37,6 +37,7 @@ username.fetch = ["command", "pass", "webdav/username"]
 password.fetch = ["command", "pass", "webdav/password"]
 
 
+
 [pair university_calendar]
 a = "university_calendar_local"
 b = "university_calendar_remote"
@@ -51,5 +52,24 @@ fileext = ".ics"
 [storage university_calendar_remote]
 type = "caldav"
 url.fetch = ["command", "pass", "webdav/caldav/university/url"]
+username.fetch = ["command", "pass", "webdav/username"]
+password.fetch = ["command", "pass", "webdav/password"]
+
+
+
+[pair university_timetable]
+a = "university_timetable_local"
+b = "university_timetable_remote"
+collections = null
+metadata = ["displayname", "color"]
+
+[storage university_timetable_local]
+type = "filesystem"
+path = "~/.calendars/university_timetable"
+fileext = ".ics"
+
+[storage university_timetable_remote]
+type = "caldav"
+url.fetch = ["command", "pass", "webdav/caldav/university_timetable/url"]
 username.fetch = ["command", "pass", "webdav/username"]
 password.fetch = ["command", "pass", "webdav/password"]
