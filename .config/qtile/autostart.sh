@@ -7,4 +7,5 @@ redshift-gtk &
 caffeine &
 blueman-applet &
 
-xsetroot -solid black
+#xsetroot -solid black
+feh --bg-scale ~/media/wallpapers/wallpaper.jpg
