@@ -85,7 +85,17 @@ keys = [
         Key([], "d", lazy.spawn("discord"), desc="Launch discord"),
         Key([], "w", lazy.spawn(generate_open_terminal_with_action_command("weechat")), desc="Launch new terminal instance with weechat"),
         ],
-        name="Launch"
+        name="launch"
+    ),
+
+    # dunst controls
+    KeyChord([mod], "d", [
+        Key([], "h", lazy.spawn("dunstctl history-pop"), desc="Show dunst history"),
+        Key([], "c", lazy.spawn("dunstctl close-all"), desc="Close all notifications"),
+        Key([], "p", lazy.spawn("dunstctl set-paused true"), desc="Pause dunst"),
+        Key([], "u", lazy.spawn("dunstctl set-paused false"), desc="Unpause dunst"),
+        ],
+        name = "dunst"
     ),
 ]
 
