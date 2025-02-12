@@ -8,4 +8,4 @@ caffeine &
 blueman-applet &
 
 #xsetroot -solid black
-feh --bg-scale ~/media/wallpapers/wallpaper.jpg
+feh --bg-scale /usr/share/backgrounds/wallpaper.png
