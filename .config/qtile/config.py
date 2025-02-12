@@ -72,6 +72,9 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.widget["volume"].increase_vol(), desc="Increase volume"),
     Key([], "XF86AudioMute", lazy.widget["volume"].mute(), desc="Toggle mute volume"),
 
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-)"), desc="Decrease monitor brightness"),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set 10%+)"), desc="Increase monitor brightness"),
+
     # open shortcuts
     KeyChord([mod], "o", [
         Key([], "c", lazy.spawn(generate_open_terminal_with_action_command("khal calendar")), desc="Launch new terminal instance showing khal calendar"),
