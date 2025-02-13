@@ -4,6 +4,7 @@ from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord, ScratchPad, DropDown, Match
 from libqtile.lazy import lazy
 from widgets.systemd_service_widget import SystemdServiceWidget
+from widgets.dunst_widget import DunstWidget
 
 mod = "mod1"
 modsuper = "mod4"
@@ -95,8 +96,8 @@ keys = [
     KeyChord([mod], "d", [
         Key([], "h", lazy.spawn("dunstctl history-pop"), desc="Show dunst history"),
         Key([], "c", lazy.spawn("dunstctl close-all"), desc="Close all notifications"),
-        Key([], "p", lazy.spawn("dunstctl set-paused true"), desc="Pause dunst"),
-        Key([], "u", lazy.spawn("dunstctl set-paused false"), desc="Unpause dunst"),
+        Key([], "p", lazy.widget["dunstwidget"].pause(), desc="Pause dunst"),
+        Key([], "u", lazy.widget["dunstwidget"].unpause(), desc="Unpause dunst"),
         ],
         name = "dunst"
     ),
@@ -162,6 +163,8 @@ screens = [
                 widget.Sep(),
                 SystemdServiceWidget(service_name="rclone-onedrive", display_name="Onedrive", show_icon=True),
                 widget.Sep(),
+                DunstWidget(show_icon=True),
+                widget.Sep(),
                 widget.DF(visible_on_warn=False, format="💾 {p} {r:.2f}%"),
                 widget.Sep(),
                 widget.KeyboardLayout(configured_keyboards=["us", "de"]),
@@ -170,7 +173,7 @@ screens = [
                 widget.Sep(),
                 widget.Volume(volume_app="amixer"),
                 widget.Sep(),
-                widget.Battery(format="{char} {percent:2.0%} {hour:d}:{min:02d}", low_percentage=0.2, notify_below=20, empty_char="🪫", discharge_char="🔋", charge_char="⚡", full_char="🔋"),
+                widget.Battery(format="{char} {percent:2.0%} {hour:d}:{min:02d}", low_percentage=0.2, notify_below=20, empty_char="🪫", discharge_char="🔋", charge_char="⚡", full_char="🔋", not_charging_char="⛔"),
                 widget.Sep(),
                 widget.Clock(format="%Y-%m-%d %a %H:%M", fmt="<b>{}</b>"),
             ],
