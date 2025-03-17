@@ -4,9 +4,8 @@ c.tabs.position = "left"
 
 c.colors.tabs.bar.bg = "#000000"
 
-c.url.start_pages = [ "https://www.google.com/" ]
+c.url.start_pages = [ "https://duckduckgo.com/" ]
 c.url.searchengines = {
-    "DEFAULT":  "https://www.google.com/search?q={}",
-    "!yt":      "https://www.youtube.com/results?search_query={}",
+    "DEFAULT":  "https://duckduckgo.com/?q={}",
     "!p":       "https://www.perplexity.ai/search?focus=internet&q={}",
 }
