@@ -101,6 +101,15 @@ keys = [
         ],
         name = "dunst"
     ),
+
+    # media controls
+    KeyChord([mod], "m", [
+        Key([], "p", lazy.spawn("playerctl play-pause"), desc="Toggle between play/pause"),
+        Key([], "n", lazy.spawn("playerctl next"), desc="Play next track"),
+        Key([], "b", lazy.spawn("playerctl previous"), desc="Play previous track"),
+        ],
+        name = "media"
+    ),
 ]
 
 # Add key bindings to switch VTs in Wayland.
