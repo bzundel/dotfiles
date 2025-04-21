@@ -7,5 +7,5 @@ redshift-gtk &
 caffeine &
 blueman-applet &
 
-#xsetroot -solid black
+autorandr -c
 feh --bg-scale /usr/share/backgrounds/wallpaper.png

@@ -101,11 +101,21 @@ keys = [
         name = "dunst"
     ),
 
+    # tablet rotations
     KeyChord([mod], "r", [
         Key([], "h", lazy.spawn("screen_tablet_horizontal"), desc="Rotate screen to horizontal layout and adapt coordinate transformation matrix for touch input"),
         Key([], "v", lazy.spawn("screen_tablet_vertical"), desc="Rotate screen to vertical layout and adapt coordinate transformation matrix for touch input"),
         ],
         name = "rotate"
+    ),
+
+    # media controls
+    KeyChord([mod], "m", [
+        Key([], "p", lazy.spawn("playerctl play-pause"), desc="Toggle between play/pause"),
+        Key([], "n", lazy.spawn("playerctl next"), desc="Play next track"),
+        Key([], "b", lazy.spawn("playerctl previous"), desc="Play previous track"),
+        ],
+        name = "media"
     ),
 ]
 
