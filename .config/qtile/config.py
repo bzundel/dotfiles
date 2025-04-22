@@ -60,7 +60,6 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "e", lazy.shutdown(), desc="Exit Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "p", lazy.spawn("dmenu_run")),
     Key([modsuper], "l", lazy.spawn("slock")),
     Key([modsuper, "shift"], "l", lazy.spawn("lock_suspend")),
@@ -100,6 +99,14 @@ keys = [
         Key([], "u", lazy.widget["dunstwidget"].unpause(), desc="Unpause dunst"),
         ],
         name = "dunst"
+    ),
+
+    # tablet rotations
+    KeyChord([mod], "r", [
+        Key([], "h", lazy.spawn("screen_tablet_horizontal"), desc="Rotate screen to horizontal layout and adapt coordinate transformation matrix for touch input"),
+        Key([], "v", lazy.spawn("screen_tablet_vertical"), desc="Rotate screen to vertical layout and adapt coordinate transformation matrix for touch input"),
+        ],
+        name = "rotate"
     ),
 
     # media controls
