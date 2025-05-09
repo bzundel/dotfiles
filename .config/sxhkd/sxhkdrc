@@ -1,0 +1,26 @@
+# open keychords
+alt + o ; {q,f,t,e,s,d,o,k}
+	{qutebrowser,firefox,thunderbird,element-desktop,signal-desktop,discord,obisidian,keepassxc}
+
+# dunst keychords
+alt + d ; {h,c,p,u,t}
+	dunstctl {history-pop,close-all,set-paused true,set-paused false,set-paused toggle}
+
+# media keychords
+alt + m ; {p,n,b}
+	playerctl {play-pause,next,previous}
+
+XF86Audio{Lower,Raise}Volume
+	amixer sset Master 10%{-,+}
+
+XF86AudioMute
+	amixer sset Master toggle
+
+XF86MonBrightness{Down,Up}
+	brightnessctl set 10%{-,+}
+
+super + l
+	slock
+
+super + shift + l
+	lock_suspend
