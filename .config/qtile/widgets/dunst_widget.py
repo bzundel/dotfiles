@@ -23,7 +23,7 @@ class DunstWidget(widget.TextBox):
     def get_service_status(self):
         try:
             result = subprocess.run(["dunstctl", "is-paused"], capture_output=True, text=True)
-            return self.active_state if result.stdout.strip() == "true" else self.inactive_state
+            return self.inactive_state if result.stdout.strip() == "true" else self.active_state
         except subprocess.CalledProcessError:
             return "Error"
 
