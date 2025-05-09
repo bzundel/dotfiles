@@ -24,3 +24,6 @@ super + l
 
 super + shift + l
 	lock_suspend
+
+super + space
+	setxkbmap -query | grep -q "layout:.*de" && setxkbmap us || setxkbmap de
