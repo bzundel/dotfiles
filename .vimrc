@@ -6,8 +6,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'lervag/vimtex'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'jpalardy/vim-slime'
-Plug 'preservim/vimux'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-fugitive'
 call plug#end()
