@@ -8,6 +8,8 @@ Plug 'lervag/vimtex'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'jpalardy/vim-slime'
 Plug 'preservim/vimux'
+Plug 'elixir-editors/vim-elixir'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 set nocompatible
@@ -27,6 +29,7 @@ let mapleader=","
 
 map <space> /
 nnoremap <leader>n :noh<CR>
+nnoremap <leader>b :Git blame<CR>
 
 nnoremap <C-n> :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -55,4 +58,3 @@ let g:slime_dont_ask_default = 1
 
 nmap <leader>s <Plug>SlimeParagraphSend
 xmap <leader>s <Plug>SlimeRegionSend
-
