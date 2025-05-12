@@ -1,6 +1,6 @@
 # open keychords
 alt + o ; {q,f,t,e,s,d,o,k}
-	{qutebrowser,firefox,thunderbird,element-desktop,signal-desktop,discord,obisidian,keepassxc}
+	{qutebrowser,firefox,thunderbird,element-desktop,signal-desktop,discord,obsidian,keepassxc}
 
 # dunst keychords
 alt + d ; {h,c,p,u,t}
