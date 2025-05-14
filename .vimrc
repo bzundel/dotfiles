@@ -43,6 +43,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_forward_search_on_start = 0
 
 " ocaml merlin
 let g:opamshare = substitute(system('opam var share'),'\n$','','''')
@@ -53,6 +54,7 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = tempname()
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_dont_ask_default = 1
+
 
 nmap <leader>s <Plug>SlimeParagraphSend
 xmap <leader>s <Plug>SlimeRegionSend
