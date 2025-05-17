@@ -7,6 +7,8 @@ Plug 'lervag/vimtex'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-fugitive'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 syntax on
@@ -28,6 +30,12 @@ let mapleader=","
 map <space> /
 nnoremap <leader>n :noh<CR>
 nnoremap <leader>b :Git blame<CR>
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsListSnippets = "<c-l>"
+
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = []
 
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_forward_search_on_start = 0
