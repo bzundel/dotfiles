@@ -1,4 +1,7 @@
 set editor = vim
+set date_format = "%a %Y-%m-%d %I:%M %p"
+set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
+
 auto_view text/html
 
 source "~/.config/mutt/main"
