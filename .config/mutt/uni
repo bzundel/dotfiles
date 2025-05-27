@@ -1,0 +1,11 @@
+set mbox_type = Maildir
+set folder = ~/mail/uni
+set spoolfile = ~/mail/uni/INBOX
+set record = ~/mail/uni/Sent
+set postponed = ~/mail/uni/Drafts
+
+set edit_headers = yes
+
+set from = "benedikt.zundel@stud.fra-uas.de"
+set realname = "Benedikt Zundel"
+set sendmail = "/usr/bin/msmtp -a uni"

@@ -1,0 +1,36 @@
+[general]
+accounts = main, uni
+pythonfile = ~/.config/offlineimap/offlineimap_pass.py
+
+[Account main]
+localrepository = main-local
+remoterepository = main-remote
+
+[Repository main-local]
+type = Maildir
+localfolders = ~/mail/main
+
+[Repository main-remote]
+type = IMAP
+remotehost = 127.0.0.1
+remoteport = 1143
+remoteuser = benedikt.zundel@bzun.de
+remotepasseval = get_pass("main")
+ssl = no
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Account uni]
+localrepository = uni-local
+remoterepository = uni-remote
+
+[Repository uni-local]
+type = Maildir
+localfolders = ~/mail/uni
+
+[Repository uni-remote]
+type = IMAP
+remotehost = mail.frankfurt-university.de
+remoteuser = uas0023510
+remotepasseval = get_pass("uni")
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt

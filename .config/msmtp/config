@@ -1,0 +1,26 @@
+defaults
+auth						on
+logfile					~/.msmtp.log
+set_from_header off
+
+account main
+host 						127.0.0.1
+port 						1025
+from 						"benedikt.zundel@bzun.de"
+user 						benedikt.zundel@bzun.de
+passwordeval 		"pass mail/main | head -n1"
+tls_trust_file	~/.config/protonmail/bridge-v3/cert.pem
+tls							on
+tls_starttls 		on
+domain 					bzun.de
+
+account uni
+host 						mail.frankfurt-university.de
+port 						465
+from 						"benedikt.zundel@stud.fra-uas.de"
+user 						uas0023510
+passwordeval 		"pass mail/uni | head -n1"
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+tls							on
+tls_starttls 		off
+domain 					stud.fra-uas.de
