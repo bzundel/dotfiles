@@ -30,3 +30,6 @@ super + shift + l
 
 super + space
 	setxkbmap -query | grep -q "layout:.*de" && setxkbmap us || setxkbmap de
+
+alt + shift + p
+	passmenu -l 5
