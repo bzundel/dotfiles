@@ -31,5 +31,5 @@ super + shift + l
 super + space
 	setxkbmap -query | grep -q "layout:.*de" && setxkbmap us || setxkbmap de
 
-alt + shift + {p,c}
-	{passmenu -l 5,khardmailmenu}
+alt + shift + {p,c,s}
+	{passmenu -l 5,khardmailmenu,audioprofilemenu}
