@@ -8,8 +8,8 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+"Plug 'dense-analysis/ale'
 "Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 "Plug 'ycm-core/YouCompleteMe'
 call plug#end()
@@ -38,9 +38,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <silent> <leader>co  :<C-u>CocList outline<CR>
+nnoremap <silent> <leader>d  :<C-u>CocList diagnostics<cr>
+
 nmap <leader>rn <Plug>(coc-rename)
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
 function! ShowDocumentation()
@@ -57,6 +57,9 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
+nmap <silent><nowait> [g <Plug>(coc-diagnostic-prev)
+nmap <silent><nowait> ]g <Plug>(coc-diagnostic-next)
+
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsListSnippets = "<c-l>"
 
@@ -66,4 +69,4 @@ let g:ycm_key_list_previous_completion = []
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_forward_search_on_start = 0
 
-let g:ale_fixers = { 'elixir': ['mix_format'] }
+"let g:ale_fixers = { 'elixir': ['mix_format'] }
