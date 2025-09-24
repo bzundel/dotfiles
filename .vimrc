@@ -70,3 +70,24 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_forward_search_on_start = 0
 
 "let g:ale_fixers = { 'elixir': ['mix_format'] }
+
+highlight CocErrorVirtualText guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight CocWarningVirtualText guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight CocInfoVirtualText guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight CocHintVirtualText guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+
+highlight DiagnosticVirtualTextError guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight DiagnosticVirtualTextWarn guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight DiagnosticVirtualTextInfo guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight DiagnosticVirtualTextHint guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+
+augroup TransparentBackground
+  autocmd!
+  autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+  autocmd ColorScheme * highlight NormalNC ctermbg=NONE guibg=NONE
+  autocmd ColorScheme * highlight SignColumn ctermbg=NONE guibg=NONE
+  autocmd ColorScheme * highlight VertSplit ctermbg=NONE guibg=NONE
+  autocmd ColorScheme * highlight EndOfBuffer ctermbg=NONE guibg=NONE
+augroup END
+
+colorscheme torte
