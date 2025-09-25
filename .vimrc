@@ -9,6 +9,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'preservim/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'dense-analysis/ale'
 "Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 "Plug 'ycm-core/YouCompleteMe'
@@ -60,6 +62,10 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 nmap <silent><nowait> [g <Plug>(coc-diagnostic-prev)
 nmap <silent><nowait> ]g <Plug>(coc-diagnostic-next)
 
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsListSnippets = "<c-l>"
 
@@ -70,6 +76,12 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_forward_search_on_start = 0
 
 "let g:ale_fixers = { 'elixir': ['mix_format'] }
+
+let g:NERDTreeFileLines = 1
+
+
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+
 
 highlight CocErrorVirtualText guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 highlight CocWarningVirtualText guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
