@@ -9,6 +9,9 @@ alt + o ; {m,n}
 alt + d ; {h,c,p,u,t}
 	dunstctl {history-pop,close-all,set-paused true,set-paused false,set-paused toggle}
 
+alt + r ; {r,n}
+	redshift {-x,-O 3000}
+
 # media keychords
 alt + m ; {p,n,b}
 	playerctl {play-pause,next,previous}
