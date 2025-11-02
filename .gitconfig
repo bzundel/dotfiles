@@ -5,6 +5,3 @@
 	editor = vim
 [init]
 	defaultBranch = master
-
-[includeIf "gitdir:~/work/"]
-  path = ~/.gitconfig-work
