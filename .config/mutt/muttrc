@@ -10,6 +10,8 @@ alternative_order text/plain text/enriched text/html
 set implicit_autoview=yes
 set mailcap_path=~/.mailcap
 
+color normal white default
+
 source "~/.config/mutt/main"
 
 macro index,pager <f2> "<enter-command>source ~/.config/mutt/main<enter><change-folder>!<enter>" "Switch to main mailbox"
