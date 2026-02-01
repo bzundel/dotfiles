@@ -15,3 +15,4 @@ alias mail="offlineimap && mutt"
 
 export PATH="$PATH:/home/bened/.dotnet/tools"
 export EDITOR="vim"
+export BROWSER="qutebrowser"
