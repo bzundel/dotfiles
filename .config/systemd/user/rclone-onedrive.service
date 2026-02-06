@@ -1,9 +1,0 @@
-[Unit]
-Description=Mount OneDrive to home using rclone
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/rclone mount --vfs-cache-mode writes onedrive:/Personal/KeePassDatabase /home/bened/cloud
-ExecStop=/usr/bin/fusermount -u /home/bened/cloud
-Restart=on-failure
-RestartSec=10

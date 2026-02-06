@@ -1,13 +1,19 @@
 [general]
 import = [
-	"themes/moonfly.toml"
+    "themes/moonfly.toml"
 ]
 
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 6.0
+size = 10.0
 
 [font.normal]
-family = "Terminus"
+family = "terminus"
+style = "Regular"
+
+[font.bold]
+family = "terminus"
+style = "Bold"
+

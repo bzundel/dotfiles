@@ -1,9 +1,0 @@
-[Unit]
-Description=Run vdirsyncer-sync.service every half hour
-
-[Timer]
-OnCalendar=*:0/30
-Unit=vdirsyncer-sync.service
-
-[Install]
-WantedBy=timers.target
