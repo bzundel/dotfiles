@@ -4,16 +4,12 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'lervag/vimtex'
-Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Plug 'dense-analysis/ale'
-"Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
-"Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 syntax on
@@ -74,8 +70,6 @@ let g:ycm_key_list_previous_completion = []
 
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_forward_search_on_start = 0
-
-"let g:ale_fixers = { 'elixir': ['mix_format'] }
 
 let g:NERDTreeFileLines = 1
 
