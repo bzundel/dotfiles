@@ -63,7 +63,10 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsListSnippets = "<c-l>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardsTrigger = "<s-tab>"
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "schnibbl"]
 
 let g:ycm_key_list_select_completion = []
 let g:ycm_key_list_previous_completion = []
