@@ -1,0 +1,45 @@
+set sidebar_visible
+set sidebar_folder_indent = yes
+set sidebar_indent_string = "  "
+set sidebar_sort_method=unsorted
+
+set reverse_name = yes
+set reverse_realname = yes
+set reply_to = yes
+set use_from = yes
+
+set edit_headers = yes
+
+set crypt_use_gpgme = yes
+
+auto_view text/html
+
+source ~/.config/neomutt/main.rc
+
+set mbox_type = Maildir
+set folder = ~/mail
+
+mailboxes -label main:Inbox -notify -poll ~/mail/main/INBOX \
+          -label main:Drafts -nonotify -poll ~/mail/main/Drafts \
+          -label main:Sent -nonotify -poll ~/mail/main/Sent \
+          -label main:Trash -nonotify -nopoll ~/mail/main/Trash
+
+mailboxes -label uni:Inbox -notify -poll ~/mail/uni/INBOX \
+          -label uni:Drafts -nonotify -poll ~/mail/uni/Drafts \
+          -label uni:Sent -nonotify -poll ~/mail/uni/Sent \
+          -label uni:Trash -nonotify -nopoll ~/mail/uni/Trash
+
+folder-hook ~/mail/main/ 'source ~/.config/neomutt/main.rc'
+folder-hook ~/mail/uni/ 'source ~/.config/neomutt/uni.rc'
+
+bind index,pager \CO sidebar-open
+bind index,pager \CN sidebar-next
+bind index,pager \CP sidebar-prev
+
+macro pager o \
+  "<pipe-message> urlscan<Enter>" \
+  "Follow links with urlscan"
+
+macro index,pager <S-F5> \
+  "<shell-escape>offlineimap &<enter>" \
+  "Sync all mailboxes"
