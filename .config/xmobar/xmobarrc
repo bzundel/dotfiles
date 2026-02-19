@@ -1,0 +1,33 @@
+Config 
+	{ font = "Terminus Bold"
+	, additionalFonts = []
+	, borderColor = "black"
+	, border = NoBorder
+	, bgColor = "#1c1c1c"
+	, fgColor = "#dcdccc"
+	, position = Top
+	, lowerOnStart = True
+	, hideOnStart = False
+	, allDesktops = True
+	, persistent = True
+	, textOffset = 1
+	, commands =
+		[ Run StdinReader
+		, Run Com ".config/xmobar/timew_status.sh" [] "timewarrior" 10
+		, Run DiskU [("/", "/ <usedp>%")]
+       ["-L", "20", "-H", "50", "-m", "1"]
+       20
+		, Run Volume "default" "Master" ["-t", "<volume>% <status>"] 10
+		, Run BatteryP ["BAT0"]
+              ["-t", "<left>% <acstatus>",
+               "-L", "10", "-H", "80", "-p", "3",
+               "--", "-O", "<fc=green>On</fc> - ", "-i", "",
+               "-L", "-15", "-H", "-5",
+               "-l", "red", "-m", "blue", "-h", "green"]
+              600
+		, Run Date "%Y-%m-%d %H:%M" "date" 10
+		]
+	, sepChar = "%"
+	, alignSep = "}{"
+	, template = "%StdinReader% }{ %timewarrior% | %disku% | %default:Master% | %battery% | %date% "
+}

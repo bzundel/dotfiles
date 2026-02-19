@@ -1,0 +1,51 @@
+IMAPAccount main
+Host 127.0.0.1
+Port 1143
+User benedikt.zundel@bzun.de
+PassCmd "pass show mail/main"
+TLSType none
+AuthMechs LOGIN
+
+IMAPStore main-remote
+Account main
+
+MaildirStore main-local
+Path ~/mail/main/
+Inbox ~/mail/main/INBOX
+
+Channel main
+Far :main-remote:
+Near :main-local:
+Patterns *
+Patterns INBOX*
+Expunge Both
+CopyArrivalDate yes
+Sync All
+SyncState *
+Create Both
+
+
+
+IMAPAccount uni
+Host mail.frankfurt-university.de
+User uas0023510
+PassCmd "pass show mail/uni"
+TLSType IMAPS
+
+IMAPStore uni-remote
+Account uni
+
+MaildirStore uni-local
+Path ~/mail/uni/
+Inbox ~/mail/uni/INBOX
+SubFolders Verbatim
+
+Channel uni
+Far :uni-remote:
+Near :uni-local:
+Patterns *
+Expunge Both
+CopyArrivalDate yes
+Sync All
+SyncState *
+Create Both
