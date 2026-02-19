@@ -15,6 +15,6 @@ set pgp_sign_as = A1920C58E6D5A1EAAF9E0F9056BF329CBE0827F0
 set signature = ~/.config/neomutt/main-signature.txt
 
 macro index,pager <F5> \
-  "<shell-escape>offlineimap -a $(basename $folder) &<enter>" \
+  "<shell-escape>mbsync $(basename $folder) &<enter>" \
   "Sync main account"
 

@@ -10,6 +10,6 @@ set postponed  = +Drafts
 set sendmail="/usr/bin/msmtp -a uni"
 
 macro index,pager <F5> \
-  "<shell-escape>offlineimap -a $(basename $folder) &<enter>" \
+  "<shell-escape>mbsync $(basename $folder) &<enter>" \
   "Sync main account"
 
