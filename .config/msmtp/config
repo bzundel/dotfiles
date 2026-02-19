@@ -9,7 +9,7 @@ port 						1025
 from 						"benedikt.zundel@bzun.de"
 user 						benedikt.zundel@bzun.de
 passwordeval 		"pass mail/main | head -n1"
-tls_trust_file	~/.config/protonmail/bridge-v3/cert.pem
+tls_trust_file	~/.local/share/protonmail/bridge-v3/cert.pem
 tls							on
 tls_starttls 		on
 domain 					bzun.de
