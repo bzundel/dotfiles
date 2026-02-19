@@ -3,6 +3,10 @@ import = [
     "themes/moonfly.toml"
 ]
 
+[window]
+opacity = 0.80
+dynamic_title = false
+
 [env]
 TERM = "xterm-256color"
 
