@@ -26,7 +26,7 @@ XF86MonBrightness{Down,Up}
 	brightnessctl set 10%{-,+}
 
 super + l
-	slock
+	betterlockscreen -l -w
 
 super + shift + l
 	lock_suspend
