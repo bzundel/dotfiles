@@ -2,16 +2,19 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.InsertPosition
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Layout (Tall, Full)
 import XMonad.Layout.NoBorders (noBorders, smartBorders)
 import XMonad.Layout.Fullscreen
+import System.Exit (exitSuccess)
 import System.IO (hPutStrLn)
 
 main :: IO ()
 main = do
 	xmproc <- spawnPipe "xmobar ~/.config/xmobar/xmobarrc"
-	xmonad $ fullscreenSupport $ docks def
+	xmonad $ ewmhFullscreen . ewmh $ docks def
 		--{ layoutHook = avoidStruts $ layoutHook def
 		{ layoutHook = avoidStruts $ definedLayoutHook
 		, logHook 	= dynamicLogWithPP $ xmobarPP
@@ -29,6 +32,10 @@ main = do
 		, focusedBorderColor = "#aaccff"
 		, manageHook = insertPosition Below Newer
 		}
+		`additionalKeysP`
+		[ ("M-S-q", kill)
+		, ("M-S-e", io exitSuccess)
+		]
 
 definedWorkspaces = ["term","www","dev","rdp","misc","opt","msg","media","mail"]
 
