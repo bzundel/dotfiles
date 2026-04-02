@@ -4,7 +4,8 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run (spawnPipe)
-import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
+import XMonad.Util.SpawnOnce (spawnOnce)
 import XMonad.Layout (Tall, Full)
 import XMonad.Layout.NoBorders (noBorders, smartBorders)
 import XMonad.Layout.Fullscreen
@@ -25,6 +26,7 @@ main = do
 			, ppHidden	= id
 			, ppHiddenNoWindows = xmobarColor "#666666" ""
 			}
+		, startupHook = definedStartupHook
 		, terminal 	= "alacritty"
 		, modMask	= mod1Mask
 		, workspaces	= definedWorkspaces
@@ -32,6 +34,12 @@ main = do
 		, focusedBorderColor = "#aaccff"
 		, manageHook = insertPosition Below Newer
 		}
+		`removeKeysP`
+		[ "M-S-p"
+		, "M-S-c"
+		, "M-S-r"
+		, "M-S-m"
+		]
 		`additionalKeysP`
 		[ ("M-S-q", kill)
 		, ("M-S-e", io exitSuccess)
@@ -43,3 +51,10 @@ definedLayoutHook =
 	smartBorders $
 	Tall 1 (10/100) (60/100)
 	||| noBorders Full
+
+definedStartupHook :: X()
+definedStartupHook = do
+	spawnOnce "picom"
+	spawnOnce "sxhkd"
+	spawnOnce "dunst"
+	spawnOnce "feh --bg-fill /usr/share/backgrounds/wallpaper.jpg"
