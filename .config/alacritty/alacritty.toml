@@ -4,8 +4,9 @@ import = [
 ]
 
 [window]
-opacity = 0.80
+#opacity = 0.80
 dynamic_title = false
+#decorations = "none"
 
 [env]
 TERM = "xterm-256color"
@@ -15,9 +16,8 @@ size = 10.0
 
 [font.normal]
 family = "terminus"
-style = "Regular"
+style = "Bold"
 
 [font.bold]
 family = "terminus"
 style = "Bold"
-
