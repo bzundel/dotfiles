@@ -49,11 +49,15 @@ function! ShowDocumentation()
   endif
 endfunction
 
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ coc#pum#visible() ? coc#pum#confirm() :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 nmap <silent><nowait> [g <Plug>(coc-diagnostic-prev)
 nmap <silent><nowait> ]g <Plug>(coc-diagnostic-next)
@@ -62,9 +66,9 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardsTrigger = "<s-tab>"
+let g:UltiSnipsExpandTrigger = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardsTrigger = "<C-k>"
 let g:UltiSnipsEditSplit = "vertical"
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "schnibbl"]
 
