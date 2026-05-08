@@ -13,7 +13,6 @@ Config
 	, textOffset = 1
 	, commands =
 		[ Run StdinReader
-		, Run Com ".config/xmobar/timew_status.sh" [] "timewarrior" 10
 		, Run DiskU [("/", "/ <usedp>%")]
        ["-L", "20", "-H", "50", "-m", "1"]
        20
@@ -29,5 +28,5 @@ Config
 		]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %timewarrior% | %disku% | %default:Master% | %battery% | %date% "
+	, template = "%StdinReader% }{ %disku% | vol: %default:Master% | bat: %battery% | %date% "
 }
