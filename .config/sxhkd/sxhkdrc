@@ -1,16 +1,13 @@
 # open keychords
-alt + o ; {q,f,t,e,s,d,o,k}
-	{qutebrowser,firefox,thunderbird,element-desktop,signal-desktop,discord,obsidian,keepassxc}
+alt + o ; {q,f,t,e,s,d,o}
+	{qutebrowser,firefox,thunderbird,element-desktop,signal-desktop,discord,obsidian}
 
 alt + o ; {m,n}
-	st -e {mutt,newsboat}
+	alacritty -e {neomutt,newsboat}
 
 # dunst keychords
 alt + d ; {h,c,p,u,t}
 	dunstctl {history-pop,close-all,set-paused true,set-paused false,set-paused toggle}
-
-alt + r ; {r,n}
-	redshift {-x,-O 3000}
 
 # media keychords
 alt + m ; {p,n,b}
@@ -34,8 +31,8 @@ super + shift + l
 super + space
 	setxkbmap -query | grep -q "layout:.*de" && setxkbmap us || setxkbmap de
 
-alt + shift + {p,c,d,o}
-	{passmenu -l 5,khardmailmenu,rofi -show drun,rofi -show emoji}
+alt + shift + {p,d,o}
+	{passmenu -l 5,rofi -show drun,rofi -show emoji}
 
 alt + u
 	flameshot gui
