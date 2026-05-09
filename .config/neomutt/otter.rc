@@ -1,0 +1,17 @@
+set realname="Benedikt Zundel"
+set from="bzun@otter-frankfurt.de"
+
+set folder     = ~/mail/otter
+set spool_file = +INBOX
+set record     = +Sent Items
+set trash      = +Trash
+set postponed  = +Drafts
+
+set sendmail = "/usr/bin/msmtp -a otter"
+
+set signature = ~/.config/neomutt/otter-signature.txt
+
+macro index,pager <F5> \
+  "<shell-escape>mbsync $(basename $folder) &<enter>" \
+  "Sync otter account"
+

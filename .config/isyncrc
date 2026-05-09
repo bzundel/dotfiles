@@ -49,3 +49,30 @@ CopyArrivalDate yes
 Sync All
 SyncState *
 Create Both
+
+
+
+
+IMAPAccount otter
+Host imap.strato.de
+User bzun@otter-frankfurt.de
+PassCmd "pass show mail/bzun@otter-frankfurt.de"
+TLSType IMAPS
+
+IMAPStore otter-remote
+Account otter
+
+MaildirStore otter-local
+Path ~/mail/otter/
+Inbox ~/mail/otter/INBOX
+SubFolders Verbatim
+
+Channel otter
+Far :otter-remote:
+Near :otter-local:
+Patterns *
+Expunge Both
+CopyArrivalDate yes
+Sync All
+SyncState *
+Create Both

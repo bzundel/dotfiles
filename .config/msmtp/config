@@ -24,3 +24,13 @@ tls_trust_file	/etc/ssl/certs/ca-certificates.crt
 tls							on
 tls_starttls 		off
 domain 					stud.fra-uas.de
+
+account otter
+host						smtp.strato.de
+port 						465
+from						"bzun@otter-frankfurt.de"
+user						"bzun@otter-frankfurt.de"
+passwordeval		"pass mail/bzun@otter-frankfurt.de | head -n1"
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+tls							on
+tls_starttls 		off

@@ -24,6 +24,11 @@ mailboxes -label main:Inbox -notify -poll ~/mail/main/INBOX \
           -label main:Sent -nonotify -poll ~/mail/main/Sent \
           -label main:Trash -nonotify -nopoll ~/mail/main/Trash
 
+mailboxes -label otter:Inbox -notify -poll ~/mail/otter/INBOX \
+          -label otter:Drafts -nonotify -poll ~/mail/otter/Drafts \
+          -label otter:Sent -nonotify -poll "~/mail/otter/Sent Items" \
+          -label otter:Trash -nonotify -nopoll ~/mail/otter/Trash
+
 mailboxes -label uni:Inbox -notify -poll ~/mail/uni/INBOX \
           -label uni:Drafts -nonotify -poll ~/mail/uni/Drafts \
           -label uni:Sent -nonotify -poll ~/mail/uni/Sent \
@@ -31,6 +36,7 @@ mailboxes -label uni:Inbox -notify -poll ~/mail/uni/INBOX \
 
 folder-hook ~/mail/main/ 'source ~/.config/neomutt/main.rc'
 folder-hook ~/mail/uni/ 'source ~/.config/neomutt/uni.rc'
+folder-hook ~/mail/otter/ 'source ~/.config/neomutt/otter.rc'
 
 bind index,pager \CO sidebar-open
 bind index,pager \CN sidebar-next
