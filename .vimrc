@@ -103,4 +103,9 @@ augroup TransparentBackground
   autocmd ColorScheme * highlight EndOfBuffer ctermbg=NONE guibg=NONE
 augroup END
 
+augroup PythonRunner
+  autocmd!
+  autocmd FileType python nnoremap <buffer> <leader>r :w<CR>:!python %<CR>
+augroup END
+
 colorscheme torte
