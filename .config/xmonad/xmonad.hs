@@ -57,5 +57,6 @@ definedStartupHook = do
 	spawnOnce "picom"
 	spawnOnce "sxhkd"
 	spawnOnce "dunst"
+	spawnOnce "protonmail-bridge --no-window"
 	spawnOnce "xsetroot -solid \"#000000\""
 	--spawnOnce "feh --bg-fill /usr/share/backgrounds/wallpaper.jpg"
