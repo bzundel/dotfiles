@@ -34,10 +34,10 @@ nnoremap <leader>b :Git blame<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
-
+nmap <leader>a <Plug>(coc-codeaction-cursor)
+nnoremap <leader>f :call CocAction('format')<CR>
 nnoremap <silent> <leader>co  :<C-u>CocList outline<CR>
 nnoremap <silent> <leader>d  :<C-u>CocList diagnostics<cr>
-
 nmap <leader>rn <Plug>(coc-rename)
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
