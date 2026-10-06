@@ -6,6 +6,8 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
 import XMonad.Util.SpawnOnce (spawnOnce)
+import XMonad.Util.NamedScratchpad
+import qualified XMonad.StackSet as W
 import XMonad.Layout (Tall, Full)
 import XMonad.Layout.NoBorders (noBorders, smartBorders)
 import XMonad.Layout.Fullscreen
@@ -14,11 +16,11 @@ import System.IO (hPutStrLn)
 
 main :: IO ()
 main = do
-	xmproc <- spawnPipe "xmobar ~/.config/xmobar/xmobarrc"
+	xmproc <- spawnPipe "sh ~/.config/xmobar/launch.sh"
 	xmonad $ ewmhFullscreen . ewmh $ docks def
 		--{ layoutHook = avoidStruts $ layoutHook def
 		{ layoutHook = avoidStruts $ definedLayoutHook
-		, logHook 	= dynamicLogWithPP $ xmobarPP
+		, logHook 	= dynamicLogWithPP $ filterOutWsPP ["NSP"] $ xmobarPP
 			{ ppOutput 	= hPutStrLn xmproc
 			, ppTitle 	= xmobarColor "#aaccff" "" . shorten 80
 			, ppCurrent	= xmobarColor "#6aa4fc" "" . wrap "<" ">"
@@ -32,7 +34,7 @@ main = do
 		, workspaces	= definedWorkspaces
 		, normalBorderColor = "#000000"
 		, focusedBorderColor = "#aaccff"
-		, manageHook = insertPosition Below Newer
+		, manageHook = namedScratchpadManageHook definedScratchpads <+> insertPosition Below Newer
 		}
 		`removeKeysP`
 		[ "M-S-p"
@@ -43,6 +45,7 @@ main = do
 		`additionalKeysP`
 		[ ("M-S-q", kill)
 		, ("M-S-e", io exitSuccess)
+		, ("M-C-t", namedScratchpadAction definedScratchpads "tray")
 		]
 
 definedWorkspaces = ["term","www","dev","rdp","misc","opt","msg","media","mail"]
@@ -61,3 +64,11 @@ definedStartupHook = do
 	spawnOnce "protonmail-bridge --no-window"
 	spawnOnce "xsetroot -solid \"#000000\""
 	--spawnOnce "feh --bg-fill /usr/share/backgrounds/wallpaper.jpg"
+
+definedScratchpads :: NamedScratchpads
+definedScratchpads =
+    [ NS "tray"
+        "stalonetray --window-type normal --window-strut none --icon-size 32"
+        (className =? "stalonetray")
+        (customFloating $ W.RationalRect 0.70 0.05 0.25 0.06)
+    ]
