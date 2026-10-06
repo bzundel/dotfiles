@@ -46,6 +46,7 @@ main = do
 		[ ("M-S-q", kill)
 		, ("M-S-e", io exitSuccess)
 		, ("M-C-t", namedScratchpadAction definedScratchpads "tray")
+		, ("M-C-b", namedScratchpadAction definedScratchpads "monitor")
 		]
 
 definedWorkspaces = ["term","www","dev","rdp","misc","opt","msg","media","mail"]
@@ -71,4 +72,8 @@ definedScratchpads =
         "stalonetray --window-type normal --window-strut none --icon-size 32"
         (className =? "stalonetray")
         (customFloating $ W.RationalRect 0.70 0.05 0.25 0.06)
+		, NS "monitor"
+				"alacritty --class ScratchMonitor -e btop"
+				(className =? "ScratchMonitor")
+				(customFloating $ W.RationalRect 0.10 0.10 0.80 0.80)
     ]
