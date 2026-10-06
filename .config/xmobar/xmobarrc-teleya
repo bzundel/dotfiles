@@ -1,0 +1,25 @@
+Config 
+	{ font = "Terminus Bold"
+	, additionalFonts = []
+	, borderColor = "black"
+	, border = NoBorder
+	, bgColor = "#1c1c1c"
+	, fgColor = "#dcdccc"
+	, position = Top
+	, lowerOnStart = True
+	, hideOnStart = False
+	, allDesktops = True
+	, persistent = True
+	, textOffset = 1
+	, commands =
+		[ Run StdinReader
+		, Run DiskU [("/", "/ <usedp>%")]
+       ["-L", "20", "-H", "50", "-m", "1"]
+       20
+		, Run Volume "default" "Master" ["-t", "<volume>% <status>"] 10
+		, Run Date "%Y-%m-%d %H:%M" "date" 10
+		]
+	, sepChar = "%"
+	, alignSep = "}{"
+	, template = "%StdinReader% }{ %disku% | vol: %default:Master%| %date% "
+}
