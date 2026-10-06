@@ -54,6 +54,7 @@ definedLayoutHook =
 
 definedStartupHook :: X()
 definedStartupHook = do
+	spawn "xset r rate 200 50"
 	spawnOnce "picom"
 	spawnOnce "sxhkd"
 	spawnOnce "dunst"
