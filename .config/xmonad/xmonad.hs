@@ -64,6 +64,7 @@ definedStartupHook = do
 	spawnOnce "dunst"
 	spawnOnce "protonmail-bridge --no-window"
 	spawnOnce "xsetroot -solid \"#000000\""
+	spawn "setxkbmap eu"
 	--spawnOnce "feh --bg-fill /usr/share/backgrounds/wallpaper.jpg"
 
 definedScratchpads :: NamedScratchpads
