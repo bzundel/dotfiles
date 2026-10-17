@@ -13,6 +13,7 @@ alias mp3d="yt-dlp -x --audio-format mp3 --embed-metadata --embed-thumbnail"
 alias c="vdirsyncer sync && ikhal && vdirsyncer sync"
 alias mail="offlineimap && mutt"
 alias define="dict -d wn"
+alias copy="xclip -selection clipboard"
 
 export PATH="$PATH:/home/bened/.dotnet/tools"
 export EDITOR="vim"
